@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { fetchBook, fetchBooks } from "@/lib/github";
+import { checkAccessAndRedirect } from "@/lib/supabase/utils";
 import { BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -35,6 +36,10 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
 
   if (!book || !book.chapters) {
     notFound();
+  }
+
+  if (book.isPaid) {
+    await checkAccessAndRedirect(book.id, "book");
   }
 
   // データ一覧から、現在のチャプターを探す

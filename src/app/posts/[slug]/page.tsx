@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { fetchArticles } from "@/lib/github";
+import { checkAccessAndRedirect } from "@/lib/supabase/utils";
 import Link from "next/link";
 
 // ビルド時に動的なページを生成
@@ -29,6 +30,10 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
         </Link>
       </div>
     );
+  }
+
+  if (post.isPaid) {
+    await checkAccessAndRedirect(post.id, "article");
   }
 
   return (

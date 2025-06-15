@@ -1,5 +1,5 @@
+import PurchaseButton from "@/components/purchase-button";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { fetchBook } from "@/lib/github";
 import { CheckSquare, Clock, Crown, ListTodo, Target } from "lucide-react";
@@ -91,12 +91,16 @@ async function FeaturedContent() {
               </span>
             </div>
 
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-purple-500 to-blue-500 font-semibold"
-            >
-              今すぐ購入する
-            </Button>
+            {content?.id && content?.price && content?.title && (
+              <PurchaseButton
+                contentId={content?.id}
+                price={content?.price}
+                title={content?.title}
+                contentType="book"
+                size="lg"
+                className="bg-gradient-to-r from-purple-500 to-blue-500 font-semibold"
+              />
+            )}
           </CardFooter>
         </div>
       </div>

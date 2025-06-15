@@ -1,3 +1,4 @@
+import PurchaseButton from "@/components/purchase-button";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { fetchBook, fetchBooks } from "@/lib/github";
@@ -77,9 +78,21 @@ export default async function BookPage({ params }: BookPageProps) {
                 {book.price === 0 ? "無料" : `¥${book.price.toLocaleString()}`}
               </div>
             </div>
-            <Button size="lg" className="w-full sm:w-auto px-12">
-              {book.price > 0 ? "購入する" : "無料で読む"}
-            </Button>
+
+            {book.price > 0 ? (
+              <PurchaseButton
+                contentId={book.id}
+                contentType="book"
+                price={book.price}
+                title={book.title}
+                size="lg"
+                className="w-full sm:w-auto px-12"
+              />
+            ) : (
+              <Button size="lg" className="w-full sm:w-auto px-12">
+                無料で読む
+              </Button>
+            )}
           </div>
         </div>
       </div>
