@@ -3,6 +3,7 @@ import SignInButton from "@/components/sign-in-button";
 import { Button } from "@/components/ui/button";
 import { fetchArticles, fetchBooks } from "@/lib/github";
 import { BookOpen, Rocket } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { auth } from "../../../auth";
 import ContentGrid from "./_components/content-grid";
@@ -52,9 +53,9 @@ export default async function Home() {
                 </Button>
               </div>
             </div>
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              width="550"
+              width="850"
               height="550"
               alt="Hero"
               className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square"
