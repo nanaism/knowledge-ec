@@ -1,57 +1,93 @@
 import Footer from "@/components/footer";
+import SignInButton from "@/components/sign-in-button";
 import { Button } from "@/components/ui/button";
 import { fetchArticles, fetchBooks } from "@/lib/github";
 import { BookOpen, Rocket } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import { auth } from "../../../auth";
 import ContentGrid from "./_components/content-grid";
 import FeaturedContent from "./_components/featured-content";
 
 export default async function Home() {
   const books = await fetchBooks();
   const articles = await fetchArticles();
-  return (
-    <>
-      <div className="container max-w-6xl mx-auto px-4 py-8">
-        <section className="my-16 text-center">
-          <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            自分にぴったりの教材が、
-            <br />
-            理解へのファストパス
-          </h1>
-          <p className="mb-8 text-xl text-muted-foreground">
-            入門から実践まで。無料で始められる、プログラミング学習に役立つリソースのコレクション。
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="px-8! h-11 font-semibold">
-              <Rocket className="w-5 h-5" />
-              無料で始める
-            </Button>
-            <Link href="#articles">
-              <Button variant="outline" className="px-8! h-11" size="lg">
-                <BookOpen className="w-5 h-5" />
-                教材を探す
-              </Button>
-            </Link>
-          </div>
-        </section>
-      </div>
+  const session = await auth();
 
-      <div className="max-w-7xl mx-auto">
-        <FeaturedContent />
-        <h2 id="articles" className="text-5xl font-bold mt-24 mb-16">
-          おすすめの記事を読む。
-        </h2>
-        <ContentGrid contents={articles} />
-      </div>
-      <div className="w-full bg-[#F5F5F7] mt-12 py-12">
-        <div className="max-w-7xl mx-auto">
-          <h2 id="books" className="text-5xl font-bold mb-16">
-            本で深くまで踏み込む。
-          </h2>
-          <ContentGrid contents={books} />
+  return (
+    <div>
+      {/* ヒーローセクション */}
+      <section className="py-20 bg-slate-50 dark:bg-slate-900/50">
+        <div className="container px-4 md:px-6">
+          <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+            <div className="flex flex-col justify-center space-y-4">
+              <div className="space-y-2">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                  高品質なテックコンテンツを
+                  <br />
+                  あなたに
+                </h1>
+                <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
+                  最新のプログラミング技術やトレンドに関する厳選された記事やハンズオン教材を提供しています。
+                </p>
+              </div>
+              <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                {session?.user ? (
+                  <Button asChild size="lg">
+                    <Link href="#featured">
+                      <Rocket className="mr-2 h-4 w-4" />
+                      おすすめコンテンツを見る
+                    </Link>
+                  </Button>
+                ) : (
+                  <SignInButton size="lg">
+                    <Rocket className="mr-2 h-4 w-4" />
+                    GitHub でサインイン
+                  </SignInButton>
+                )}
+                <Button variant="outline" size="lg" asChild>
+                  <Link href="#books">
+                    <BookOpen className="mr-2 h-4 w-4" />
+                    本一覧を見る
+                  </Link>
+                </Button>
+              </div>
+            </div>
+            <Image
+              src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              width="550"
+              height="550"
+              alt="Hero"
+              className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square"
+            />
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* ピックアップコンテンツ */}
+      <section id="featured" className="py-12 bg-white dark:bg-gray-950">
+        <div className="container px-4 md:px-6">
+          <h2 className="text-3xl font-bold tracking-tight mb-8">
+            オススメコンテンツ
+          </h2>
+          <FeaturedContent />
+        </div>
+      </section>
+
+      {/* コンテンツ一覧 */}
+      <section id="articles" className="py-12 bg-slate-50 dark:bg-slate-900/50">
+        <div className="container px-4 md:px-6">
+          <ContentGrid title="記事一覧" contents={articles} />
+        </div>
+      </section>
+
+      <section id="books" className="py-12 bg-white dark:bg-gray-950">
+        <div className="container px-4 md:px-6">
+          <ContentGrid title="本一覧" contents={books} />
+        </div>
+      </section>
+
       <Footer />
-    </>
+    </div>
   );
 }
