@@ -1,4 +1,4 @@
-const HANDLE = "@your-handle";
+const HANDLE = "@oga";
 const DEVELOPER_LINK = "#";
 
 function Footer() {
