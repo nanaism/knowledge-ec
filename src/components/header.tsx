@@ -9,7 +9,7 @@ async function Header() {
     <nav className="border-b sticky top-0 z-50 bg-background">
       <div className="flex h-16 items-center container mx-auto">
         <Link href="/" className="mr-6 flex items-center space-x-2">
-          <span className="text-xl font-bold">Knowledge EC</span>
+          <span className="text-xl font-bold">Oga&apos;s Knowledge EC</span>
         </Link>
 
         <div className="ml-auto flex items-center space-x-4">

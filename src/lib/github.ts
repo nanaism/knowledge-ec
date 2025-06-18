@@ -12,8 +12,8 @@ import {
 } from "../types/github";
 
 // 今回使用するコンテンツのリポジトリ
-const REPO_OWNER = "b13o";
-const REPO_NAME = "dummy-ec-content";
+const REPO_OWNER = "nanaism";
+const REPO_NAME = "ec-content";
 
 // GitHub API URL
 const RAW_CONTENT_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/main`;
