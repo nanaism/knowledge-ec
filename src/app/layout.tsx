@@ -6,7 +6,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Oga's Knowledge EC",
+  title: "Oga's Knowledge Store",
   description: "テクノロジー専門のコンテンツECサイト",
 };
 

@@ -7,8 +7,8 @@ import Image from "next/image";
 
 const FEATURED_CONTENT = {
   slug: "todo-handson-book",
-  properPrice: 27800,
-  discount: 94,
+  properPrice: 9999999,
+  discount: 99,
   time: "60分",
   difficulty: "入門",
 };
