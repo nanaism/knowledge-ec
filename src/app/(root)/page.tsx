@@ -18,9 +18,9 @@ export default async function Home() {
     <div>
       {/* ヒーローセクション */}
       <section className="py-20 bg-slate-50 dark:bg-slate-900/50">
-        {/* ↓↓↓ "container" クラスを削除 ↓↓↓ */}
         <div className="px-4 md:px-6">
-          <div className="grid gap-6 lg:grid-cols-[1fr_800px] lg:gap-12 xl:grid-cols-[1fr_1000px]">
+          {/* ▼▼▼ [修正箇所] 画像側のカラム幅を小さくして、テキスト側の幅を広げました ▼▼▼ */}
+          <div className="grid gap-6 lg:grid-cols-[1fr_600px] lg:gap-12 xl:grid-cols-[1fr_800px]">
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
@@ -59,8 +59,8 @@ export default async function Home() {
             </div>
             <Image
               src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              width="850"
-              height="850"
+              width="750"
+              height="750"
               alt="Hero"
               className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
             />
@@ -70,7 +70,6 @@ export default async function Home() {
 
       {/* ピックアップコンテンツ */}
       <section id="featured" className="py-12 bg-white dark:bg-gray-950">
-        {/* ↓↓↓ "container" クラスを削除 ↓↓↓ */}
         <div className="px-4 md:px-6">
           <h2 className="text-3xl font-bold tracking-tight mb-8">
             オススメコンテンツ
@@ -81,14 +80,12 @@ export default async function Home() {
 
       {/* コンテンツ一覧 */}
       <section id="articles" className="py-12 bg-slate-50 dark:bg-slate-900/50">
-        {/* ↓↓↓ "container" クラスを削除 ↓↓↓ */}
         <div className="px-4 md:px-6">
           <ContentGrid title="記事一覧" contents={articles} />
         </div>
       </section>
 
       <section id="books" className="py-12 bg-white dark:bg-gray-950">
-        {/* ↓↓↓ "container" クラスを削除 ↓↓↓ */}
         <div className="px-4 md:px-6">
           <ContentGrid title="本一覧" contents={books} />
         </div>
