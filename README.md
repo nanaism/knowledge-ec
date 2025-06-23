@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+![FireShot Webpage Capture 022 - 'Oga's Knowledge Store' - store aiichiro jp](https://github.com/user-attachments/assets/5ba08f0b-57b1-4b64-8aff-daa316f823e7)
 
-## Getting Started
+# 必須機能
+- 認証機能：
+- GitHub アカウントでログイン/ログアウト
+- ログイン状態の保持
+- コンテンツ一覧表示：
+- トップページに特集コンテンツを大きく表示
+- コンテンツの一覧をグリッドで表示
+- 有料/無料を明示
+- コンテンツ詳細表示：
+- コンテンツの詳細ページを実装する
+- 記事の詳細ページの URL は、domain.com/posts/[slug]の形式にする
+- 本の詳細ページの URL は、domain.com/books/[book-slug]/[page-slug]の形式にする
+- 決済機能：
+- Stripe による有料販売の実装
+- 購入済みのコンテンツ管理
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# ユーザーストーリー
+- トップページ：
+ - ユーザーがサイトにアクセスすると、ナビゲーションバーにログインボタンが表示されている
+ - トップには特集コンテンツが大きく表示されている
+ - 記事・本のコンテンツ一覧が、それぞれ横１列のレイアウトで表示されている
+ - 各コンテンツカードには、タイトル、タグが表示される
+ - 有料コンテンツには、価格が明確に表示される
+ - コンテンツカードをクリックすると、詳細ページに遷移する
+- 詳細ページ：
+ - 無料コンテンツは全文が表示される
+ - 有料コンテンツは購入しないと閲覧することができない
+ - 有料コンテンツには購入ボタンが表示される
+ - 購入済みの場合は全文を閲覧できる
+- 認証/決済：
+ - GitHub アカウントでログインできる
+ - ログイン状態が保持される
+ - Stripe でクレジットカード決済ができる
+ - 購入後すぐにコンテンツを閲覧できる
