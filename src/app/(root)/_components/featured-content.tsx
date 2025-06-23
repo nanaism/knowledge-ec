@@ -8,7 +8,7 @@ import Image from "next/image";
 const FEATURED_CONTENT = {
   slug: "framer-motion-handson-book",
   properPrice: 300,
-  discount: 30,
+  discount: 66,
   time: "60分",
   difficulty: "入門",
 };
