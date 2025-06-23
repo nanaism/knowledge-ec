@@ -8,7 +8,8 @@
 **👇 今すぐサイトを体験！**
 ### [https://store.aiichiro.jp/](https://store.aiichiro.jp/)
 
-![Oga's Knowledge Storeのスクリーンショット](https://github.com/user-attachments/assets/5ba08f0b-57b1-4b64-8aff-daa316f823e7)
+![FireShot Webpage Capture 027 - 'Oga's Knowledge Store' - store aiichiro jp](https://github.com/user-attachments/assets/0032528b-8f9b-4ebe-bcc9-9c118be81624)
+
 
 ---
 
